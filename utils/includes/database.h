@@ -4,6 +4,9 @@
 #include <inverted_index.h>
 #include <term.h>
 
+namespace utils
+{
+
 class Database
 {
 /**
@@ -18,12 +21,13 @@ public:
 	Database(const char* filename);
 	~Database();
 	
-	void LoadBase(const char* filename);
-	void SaveBase(const char* filename);
+	void LoadDB(const char* filename);
+	void SaveDB(const char* filename);
 
 	InvertedIndex& GetInvertedIndex();
 	const InvertedIndex& GetInvertedIndex() const;
 
+	void GetDocumentsByTerm(const Term&, std::vector<const Document*>& result) const;
 	TermsHolder& GetTermsHolder();
 	void AddDocument(const Document&);
 
@@ -31,5 +35,7 @@ private:
 	InvertedIndex m_invertedIndex;
 	TermsHolder m_termsHolder;
 };
+
+} // utils
 
 #endif // DATABASE_H

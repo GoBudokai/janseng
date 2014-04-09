@@ -2,12 +2,14 @@
 #include <inverted_index.h>
 #include <stdio.h>
 
+namespace utils
+{
+
 InvertedIndex::InvertedIndex()
 {}
 
 InvertedIndex::~InvertedIndex()
 {}
-
 
 void InvertedIndex::AddDocument(const Document& document)
 {
@@ -20,7 +22,7 @@ void InvertedIndex::AddDocument(const Document& document)
 }
 
 void InvertedIndex::GetDocumentsByTerm(const Term& term
-		,std::vector<const Document*>& result) const
+		, std::vector<const Document*>& result) const
 {
 	std::map<const Term*, std::vector<const Document*> >::const_iterator it;
 	if(m_map.end() != (it = m_map.find(&term)))
@@ -28,3 +30,5 @@ void InvertedIndex::GetDocumentsByTerm(const Term& term
 		result = it->second;
 	}
 }
+
+} // utils

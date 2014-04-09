@@ -2,6 +2,9 @@
 #include <term.h>
 #include <database.h>
 
+namespace utils
+{
+
 Database::Database()
 	: m_invertedIndex()
 	, m_termsHolder()
@@ -13,9 +16,9 @@ Database::Database(const char* filename)
 Database::~Database()
 {}
 	
-void Database::LoadBase(const char* filename)
+void Database::LoadDB(const char* filename)
 {}
-void Database::SaveBase(const char* filename)
+void Database::SaveDB(const char* filename)
 {}
 
 InvertedIndex& Database::GetInvertedIndex()
@@ -32,8 +35,14 @@ TermsHolder& Database::GetTermsHolder()
 {
 	return m_termsHolder;
 }
+void Database::GetDocumentsByTerm(const Term& term, std::vector<const Document*>& result) const
+{
+	m_invertedIndex.GetDocumentsByTerm(term, result);
+}
 
 void Database::AddDocument(const Document& document)
 {
 	m_invertedIndex.AddDocument(document);
 }
+
+} // utils

@@ -3,6 +3,9 @@
 #include<vector>
 #include<term.h>
 
+namespace utils
+{
+
 class Document
 {
 /**
@@ -23,5 +26,7 @@ public:
 private:
 	std::vector<const Term*> m_terms;
 };
+
+} // utils
 
 #endif // DOCUMENT_H

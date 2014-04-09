@@ -1,6 +1,9 @@
 #include <document.h>
 #include <stdio.h>
 
+namespace utils
+{
+
 Document::Document()
 {}
 
@@ -23,6 +26,7 @@ Document::ConstIterator Document::End() const
 
 void Document::Print() const
 {
+#warning delete this method
 	ConstIterator it(Begin()), endIt(End());
 
 	for(; it != endIt; ++it)
@@ -31,3 +35,5 @@ void Document::Print() const
 	}
 	::printf("\n");
 }
+
+} // utils

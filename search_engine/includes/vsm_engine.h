@@ -14,10 +14,10 @@ private:
 	explicit VsmEngine(const VsmEngine&);
 	VsmEngine& operator = (const VsmEngine&);
 public:
-	VsmEngine(Database&);
+	VsmEngine(utils::Database&);
 	~VsmEngine();
 
-	void StartSearch(const Query&, SearchResult&) const;
+	void StartSearch(const utils::Query&, utils::SearchResult&) const;
 private:
-	const Database& m_database;
+	const utils::Database& m_database;
 };

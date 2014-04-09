@@ -1,5 +1,8 @@
 #include <result.h>
-#include <stdio.h>
+#include <document.h>
+
+namespace utils
+{
 	
 SearchResult::SearchResult()
 {}
@@ -8,6 +11,7 @@ SearchResult::~SearchResult()
 
 void SearchResult::Add(const Document& document, const double rank)
 {
-	document.Print();
-//	::printf("%s\n", __PRETTY_FUNCTION__);
+#warning doesn`t implemented
 }
+
+} // utils

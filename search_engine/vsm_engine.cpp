@@ -6,25 +6,25 @@
 #include<vsm_engine.h>
 #include<stdio.h>
 
-VsmEngine::VsmEngine(Database& database)
+VsmEngine::VsmEngine(utils::Database& database)
 	: m_database(database)
 {}
 
 VsmEngine::~VsmEngine()
 {}
 
-void VsmEngine::StartSearch(const Query& query, SearchResult& searchResult) const
+void VsmEngine::StartSearch(const utils::Query& query, utils::SearchResult& searchResult) const
 {
-	const InvertedIndex& invertedIndex(m_database.GetInvertedIndex());
+//	const utils::InvertedIndex& invertedIndex(m_database.GetInvertedIndex());
 	
-	Query::ConstIterator endIt(query.End());
+	utils::Query::ConstIterator endIt(query.End());
 	
-	for(Query::ConstIterator it(query.Begin()); it != endIt; ++it)
+	for(utils::Query::ConstIterator it(query.Begin()); it != endIt; ++it)
 	{
-		std::vector<const Document*> documents;
-		invertedIndex.GetDocumentsByTerm(**it, documents);
+		std::vector<const utils::Document*> documents;
+		m_database.GetDocumentsByTerm(**it, documents);
 
-		for(std::vector<const Document*>::iterator docIt(documents.begin()); docIt != documents.end(); ++docIt)
+		for(std::vector<const utils::Document*>::iterator docIt(documents.begin()); docIt != documents.end(); ++docIt)
 		{
 			searchResult.Add(**docIt, 1);
 		}

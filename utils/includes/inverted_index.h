@@ -6,6 +6,8 @@
 #include<vector>
 #include<map>
 
+namespace utils
+{
 class Database;
 
 class InvertedIndex
@@ -15,15 +17,19 @@ class InvertedIndex
 @detailed class can be used only inside database
 and couldn`t be used outside
 */
-public:
+private:
 	InvertedIndex();
 	~InvertedIndex();
 
 	void AddDocument(const Document& document);
-	friend class Database;
 	void GetDocumentsByTerm(const Term&, std::vector<const Document*>& result) const;
+
 private:
 	std::map<const Term*, std::vector<const Document*> > m_map;
+	
+	friend class Database;
 };
+
+} // utils
 
 #endif // INVERTED_INDEX_H

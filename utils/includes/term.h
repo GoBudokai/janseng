@@ -5,6 +5,9 @@
 #include <string>
 #include <vector>
 
+namespace utils
+{
+
 class Term;
 
 class TermsHolder
@@ -33,4 +36,5 @@ private:
 	friend class TermsHolder;
 };
 
+} // utils
 #endif // TERM_H

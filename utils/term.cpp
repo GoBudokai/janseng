@@ -1,5 +1,8 @@
 #include<term.h>
 
+namespace utils
+{
+
 TermsHolder::TermsHolder()
 {}
 
@@ -52,3 +55,5 @@ const std::string& Term::GetString() const
 {
 	return m_word;
 }
+
+} // utils

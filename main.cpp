@@ -6,6 +6,8 @@
 #include <result.h>
 #include <stdio.h>
 
+using namespace utils;
+
 int main()
 {
 	Database database;

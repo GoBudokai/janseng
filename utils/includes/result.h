@@ -1,6 +1,10 @@
 #ifndef RESULT_H
 #define RESULT_H
-#include<document.h>
+#include<map>
+
+namespace utils
+{
+class Document;
 
 class SearchResult
 {
@@ -10,6 +14,9 @@ public:
 
 	void Add(const Document&, const double rank);
 private:
+	
 };
+
+} // utils
 
 #endif // RESULT_H
